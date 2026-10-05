@@ -11,6 +11,7 @@ npm ci
 npm run dev
 npm test
 npm run build
+npm run test:browser # Chromium tại /usr/bin/chromium
 npm run preview
 ```
 
@@ -24,3 +25,5 @@ npm run preview
 Mã QR tự tạo từ URL trang đang mở, vì vậy sau khi deploy hãy mở website thật để tải QR. QR khi chạy local chỉ trỏ đến địa chỉ local. Dùng nút mã QR → **Tải mã QR** để lưu ảnh và gửi hoặc in.
 
 Sửa lời nhắn trong `index.html`, các lời chúc trong `src/messages.js`, màu và responsive trong `src/style.css`. Font Google là tùy chọn; trang dùng font dự phòng nếu không truy cập được.
+
+Ảnh QR sẵn cho URL GitHub Pages dự kiến: `public/qr-20-10.png`. Chỉ chia sẻ sau khi GitHub Pages deploy thành công.
