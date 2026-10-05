@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#fae7ed" />
+  <meta name="description" content="Một món quà nhỏ, một chút dịu dàng dành cho bạn nhân ngày Phụ nữ Việt Nam 20/10." />
+  <title>Gửi bạn một chút dịu dàng · 20/10</title>
+</head>
+<body>
+  <div class="petals" aria-hidden="true"></div>
+  <header class="topbar"><a class="brand" href="#">♡ một chút dịu dàng</a><span>20 . 10</span></header>
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span></span> HAPPY VIETNAMESE WOMEN’S DAY</div>
+      <p class="date">20 tháng 10</p>
+      <h1>Gửi bạn một chút<br /><em>dịu dàng.</em><span class="title-star" aria-hidden="true">✧</span></h1>
+      <p class="intro">Vì bạn xứng đáng với những điều đẹp đẽ nhất.<br />Hôm nay, và cả những ngày sau nữa.</p>
+      <div class="scene" aria-label="Thỏ trắng và mèo trắng ngồi bên nhau trong vườn hoa pixel">
+        <span class="scene-star s1" aria-hidden="true">✧</span><span class="scene-star s2" aria-hidden="true">♡</span>
+        <div class="scene-cloud" aria-hidden="true"></div><div class="scene-ground" aria-hidden="true"></div>
+        <button class="animal rabbit" aria-label="Vuốt ve thỏ trắng"><canvas width="24" height="32"></canvas><span>bé thỏ</span></button>
+        <span class="between-heart" aria-hidden="true">♥</span>
+        <button class="animal cat" aria-label="Vuốt ve mèo trắng"><canvas width="24" height="32"></canvas><span>bé mèo</span></button>
+        <span class="pixel-flower f1" aria-hidden="true">✿</span><span class="pixel-flower f2" aria-hidden="true">✿</span><span class="pixel-flower f3" aria-hidden="true">✿</span>
+        <div class="animal-message" role="status"></div>
+      </div>
+      <button class="primary" id="open-letter">Mở lời nhắn dành cho bạn <span aria-hidden="true">♡</span></button>
+      <p class="tiny">một món quà nhỏ, dành riêng cho bạn</p>
+    </section>
+    <section class="little-things" aria-labelledby="little-title">
+      <div class="section-heading"><span class="line"></span><h2 id="little-title">Những điều nhỏ xinh</h2><span class="line"></span></div>
+      <p class="section-intro">Chạm một chút, nhận thêm một chút niềm vui.</p>
+      <div class="cards">
+        <button class="gift-card" id="wish"><span class="card-icon">✧</span><strong>Một lời chúc</strong><span>Điều dễ thương đang đợi bạn</span><span class="card-link">Nhận lời chúc ↗</span></button>
+        <button class="gift-card" id="flower"><span class="card-icon">✿</span><strong>Một bông hoa</strong><span>Để ngày của bạn thêm rực rỡ</span><span class="card-link">Nhận hoa nhé ↗</span></button>
+        <button class="gift-card" id="hug"><span class="card-icon">♡</span><strong>Một cái ôm</strong><span>Nhẹ nhàng, ấm áp, thật lâu</span><span class="card-link">Ôm một cái nào ↗</span></button>
+      </div>
+      <div class="gift-result" role="status" aria-live="polite">Một chút yêu thương có thể làm ngày hôm nay đẹp hơn.</div>
+    </section>
+    <section class="share-section"><div><span class="eyebrow">SPREAD A LITTLE LOVE</span><h2>Dịu dàng là để sẻ chia.</h2><p>Gửi trang nhỏ này đến một người bạn thương nhé.</p><button id="share" class="secondary">Chia sẻ yêu thương <span aria-hidden="true">↗</span></button><p id="share-status" role="status"></p></div><button class="qr-card" id="show-qr" aria-label="Mở mã QR để chia sẻ trang"><canvas id="qr"></canvas><span>Quét để nhận một chút yêu thương ♡</span></button></section>
+  </main>
+  <footer>Made with ♡ <span>Chúc bạn một ngày 20/10 thật hạnh phúc.</span></footer>
+  <dialog id="letter"><button class="close" aria-label="Đóng lời nhắn">×</button><span class="letter-icon">♡</span><p class="eyebrow">GỬI BẠN, NGƯỜI RẤT ĐẶC BIỆT</p><h2>Chúc bạn luôn<br />được yêu thương.</h2><p>Mong bạn luôn tìm thấy niềm vui trong những điều nhỏ bé, đủ can đảm để theo đuổi điều mình yêu, và đủ dịu dàng để yêu thương chính mình.</p><p>Không cần phải hoàn hảo. Chỉ cần là bạn, đã thật đáng quý rồi.</p><p class="signature">Một ngày 20/10 thật xinh nhé! ✿</p><button class="primary" id="letter-love">Mình nhận được rồi ♡</button></dialog>
+  <dialog id="qr-dialog"><button class="close" aria-label="Đóng mã QR">×</button><h2>Gửi một chút dịu dàng</h2><canvas id="qr-large"></canvas><p>Quét mã bằng camera để mở trang.</p><a id="download-qr" download="gui-ban-diu-dang-20-10.png">Tải mã QR ↓</a><p class="qr-url"></p></dialog>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
