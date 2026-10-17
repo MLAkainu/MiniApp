@@ -24,10 +24,14 @@ for (const dialog of document.querySelectorAll('dialog')) {
     if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close();
   });
 }
-$('#open-letter').addEventListener('click', () => $('#letter').showModal());
+$('#open-letter').addEventListener('click', () => {
+  $('#letter').showModal();
+  celebrate($('#letter'));
+});
 $('#letter-love').addEventListener('click', () => {
   $('#letter').close();
   hearts($('#open-letter'));
+  celebrate();
 });
 $('.rabbit').addEventListener('click', (event) => {
   $('.animal-message').classList.remove('is-hint');
@@ -172,3 +176,42 @@ document.addEventListener('pointerdown', (event) => {
 document.addEventListener('visibilitychange', () => {
   document.documentElement.classList.toggle('animations-paused', document.hidden);
 });
+
+// Finite celebration bursts, with a cap to avoid stacking particles on repeated taps.
+let lastCelebration = 0;
+function celebrate(host = document.body) {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || document.hidden) return;
+  const now = Date.now();
+  if (now - lastCelebration < 1200) return;
+  lastCelebration = now;
+  document.querySelectorAll('.celebration-layer').forEach(layer => layer.remove());
+  const layer = document.createElement('div');
+  layer.className = 'celebration-layer';
+  layer.setAttribute('aria-hidden', 'true');
+  const colors = ['#d987ab', '#edb7cd', '#c5addb', '#efd2a1', '#b8d6c5', '#f8e6ef'];
+  for (let i = 0; i < 54; i++) {
+    const piece = document.createElement('span');
+    piece.className = `confetti-piece${i % 5 === 0 ? ' confetti-round' : ''}`;
+    piece.style.left = `${3 + Math.random() * 94}%`;
+    piece.style.backgroundColor = colors[i % colors.length];
+    piece.style.setProperty('--confetti-drift', `${(Math.random() - .5) * 140}px`);
+    piece.style.setProperty('--confetti-spin', `${(Math.random() - .5) * 1100}deg`);
+    piece.style.animationDelay = `${Math.random() * .7}s`;
+    piece.style.animationDuration = `${2.7 + Math.random() * 1.5}s`;
+    layer.append(piece);
+  }
+  host.append(layer);
+  setTimeout(() => layer.remove(), 5200);
+}
+const balloonColors = ['#e9a8c2', '#d4b8e2', '#f0c8b2', '#bcd9d0', '#ecc3da', '#d5c5ec'];
+for (let i = 0; i < 6; i++) {
+  const balloon = document.createElement('span');
+  balloon.className = 'floating-balloon';
+  balloon.style.left = `${i < 3 ? 2 + i * 6 : 83 + (i - 3) * 5}%`;
+  balloon.style.setProperty('--balloon-color', balloonColors[i]);
+  balloon.style.setProperty('--balloon-sway', `${i % 2 ? -18 : 18}px`);
+  balloon.style.animationDuration = `${17 + i * 2}s`;
+  balloon.style.animationDelay = `${-i * 3.6}s`;
+  $('.balloon-sky').append(balloon);
+}
+setTimeout(() => celebrate(), 900);
