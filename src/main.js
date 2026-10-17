@@ -53,7 +53,7 @@ $('#hug').addEventListener('click', (event) => {
 });
 $('.rabbit').addEventListener('click', (event) => {
   $('.animal-message').classList.remove('is-hint');
-  $('.animal-message').textContent = 'Bé thỏ gửi bạn một chiếc thơm má ♡';
+  $('.animal-message').textContent = 'chúc phanh hôm nay phải thiệc dui hong được buồn nụa. ✧';
   hearts(event.currentTarget);
 });
 $('.cat').addEventListener('click', (event) => {
