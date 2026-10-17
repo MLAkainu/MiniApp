@@ -7,7 +7,7 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 1000
     await page.goto('/');
     await expect(page.locator('h1')).toContainText('dịu dàng');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole('button', { name: 'Mở lời nhắn dành cho bạn' }).click();
+    await page.getByRole('button', { name: 'Mở lời nhắn Mloc gửi cho Phanh' }).click();
     await expect(page.locator('#letter')).toBeVisible();
     await page.getByRole('button', { name: 'Mình nhận được rồi' }).click();
     await expect(page.locator('#letter')).not.toBeVisible();
