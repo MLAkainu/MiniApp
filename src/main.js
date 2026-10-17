@@ -32,12 +32,14 @@ $('#letter-love').addEventListener('click', () => {
 $('.rabbit').addEventListener('click', (event) => {
   $('.animal-message').classList.remove('is-hint');
   $('.animal-message').textContent = 'chúc phanh hôm nay phải thiệc dui hong được buồn nụa. ✧';
-  hearts(event.currentTarget);
+  animateAnimal(event.currentTarget);
+  hearts(event.currentTarget, ['✧', '✦', '✧']);
 });
 $('.cat').addEventListener('click', (event) => {
   $('.animal-message').classList.remove('is-hint');
   $('.animal-message').textContent = 'Meo~~ phanh xink lắm óhh. ✧';
-  hearts(event.currentTarget);
+  animateAnimal(event.currentTarget);
+  hearts(event.currentTarget, ['✧', '✦', '✧']);
 });
 // Original pixel sprites: each character is one pixel, no external image assets.
 const palette = { o: '#cbaeb9', w: '#fffdfa', p: '#f0b9ca', e: '#725765', n: '#cb849b', b: '#edbdce', g: '#e3ccd4' };
@@ -136,3 +138,37 @@ for (let i = 0; i < 16; i++) {
   sparkle.style.animationDelay = `${i * -.9}s`;
   $('.background-sparkles').append(sparkle);
 }
+
+function animateAnimal(animal) {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  animal.getAnimations().forEach(animation => animation.cancel());
+  animal.animate([
+    { transform: 'translateY(0) rotate(0)' },
+    { transform: 'translateY(-16px) rotate(-5deg)', offset: .35 },
+    { transform: 'translateY(-5px) rotate(4deg)', offset: .7 },
+    { transform: 'translateY(0) rotate(0)' },
+  ], { duration: 550, easing: 'ease-out' });
+  const message = $('.animal-message');
+  message.getAnimations().forEach(animation => animation.cancel());
+  message.animate([{ opacity: 0, transform: 'translateY(5px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 300, easing: 'ease-out' });
+}
+// A small burst follows intentional taps on empty areas, without intercepting controls.
+document.addEventListener('pointerdown', (event) => {
+  if (event.target.closest('button, a, dialog') || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  for (let i = 0; i < 5; i++) {
+    const star = document.createElement('span');
+    star.className = 'tap-sparkle';
+    star.setAttribute('aria-hidden', 'true');
+    star.textContent = i % 2 ? '✦' : '✧';
+    star.style.left = `${event.clientX}px`;
+    star.style.top = `${event.clientY}px`;
+    const angle = i * Math.PI * 2 / 5;
+    star.style.setProperty('--star-x', `${Math.cos(angle) * 42}px`);
+    star.style.setProperty('--star-y', `${Math.sin(angle) * 42 - 15}px`);
+    document.body.append(star);
+    setTimeout(() => star.remove(), 900);
+  }
+});
+document.addEventListener('visibilitychange', () => {
+  document.documentElement.classList.toggle('animations-paused', document.hidden);
+});
