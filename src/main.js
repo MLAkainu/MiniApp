@@ -52,10 +52,12 @@ $('#hug').addEventListener('click', (event) => {
   hearts(event.currentTarget);
 });
 $('.rabbit').addEventListener('click', (event) => {
+  $('.animal-message').classList.remove('is-hint');
   $('.animal-message').textContent = 'Bé thỏ gửi bạn một chiếc thơm má ♡';
   hearts(event.currentTarget);
 });
 $('.cat').addEventListener('click', (event) => {
+  $('.animal-message').classList.remove('is-hint');
   $('.animal-message').textContent = 'Meo~ Hôm nay bạn xinh lắm đó! ♡';
   hearts(event.currentTarget);
 });
