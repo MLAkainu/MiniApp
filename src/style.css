@@ -5,3 +5,20 @@
 .animal-message.is-hint{color:#a97388;font-size:10px;letter-spacing:.35px;animation:tap-hint-breathe 3s ease-in-out infinite}
 .animal-message.is-hint span{display:inline-block;margin-left:3px}
 @keyframes tap-hint-breathe{0%,100%{opacity:.65}50%{opacity:1}}
+
+/* Mobile layout, including iPhone 11 and Safari's changing viewport height. */
+@media(max-width:600px){
+  .topbar{padding-top:max(23px,env(safe-area-inset-top));padding-left:max(22px,env(safe-area-inset-left));padding-right:max(22px,env(safe-area-inset-right))}
+  h1{font-size:clamp(40px,11.6vw,53px);max-width:100%;padding-inline:8px}
+  .title-star{right:-7px;top:48px}
+  .intro{max-width:360px;margin-inline:auto;text-wrap:pretty}
+  .scene{margin-bottom:24px}
+  .animal-message{min-height:32px;bottom:-12px;line-height:1.6;padding-inline:6px}
+  #open-letter{max-width:100%;min-height:48px;line-height:1.6}
+  dialog{max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain;padding:32px 22px 26px;-webkit-overflow-scrolling:touch}
+  dialog h2{font-size:clamp(25px,6.8vw,30px);line-height:1.35}
+  dialog p{font-size:12px;line-height:1.85}
+  .close{width:44px;height:44px;top:5px;right:5px}
+  #letter-love{min-height:44px}
+  footer{padding-bottom:max(23px,env(safe-area-inset-bottom))}
+}
