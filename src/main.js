@@ -124,3 +124,15 @@ for (let i = 0; i < 8; i++) {
   petal.style.animationDuration = `${18 + i * 2}s`;
   $('.petals').append(petal);
 }
+
+// Small, fixed decoration count keeps the background light on mobile.
+for (let i = 0; i < 16; i++) {
+  const sparkle = document.createElement('span');
+  sparkle.className = 'background-sparkle';
+  sparkle.textContent = i % 3 === 0 ? '✧' : '·';
+  sparkle.style.left = `${4 + (i * 29) % 92}%`;
+  sparkle.style.top = `${3 + (i * 17) % 94}%`;
+  sparkle.style.setProperty('--sparkle-duration', `${5 + i % 5}s`);
+  sparkle.style.animationDelay = `${i * -.9}s`;
+  $('.background-sparkles').append(sparkle);
+}
