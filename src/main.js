@@ -58,7 +58,7 @@ $('.rabbit').addEventListener('click', (event) => {
 });
 $('.cat').addEventListener('click', (event) => {
   $('.animal-message').classList.remove('is-hint');
-  $('.animal-message').textContent = 'Meo~ Hôm nay bạn xinh lắm đó! ♡';
+  $('.animal-message').textContent = 'Meo~~ phanh xink lắm óhh. ✧';
   hearts(event.currentTarget);
 });
 $('#share').addEventListener('click', async () => {
