@@ -30,7 +30,6 @@ $('#open-letter').addEventListener('click', () => {
 });
 $('#letter-love').addEventListener('click', () => {
   $('#letter').close();
-  hearts($('#open-letter'));
   celebrate();
 });
 $('.rabbit').addEventListener('click', (event) => {
